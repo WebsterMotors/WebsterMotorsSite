@@ -1,14 +1,51 @@
 import Fluent
 import Vapor
+import Leaf
+
 
 func routes(_ app: Application) throws {
-    app.get { req in
-        return req.view.render("index", ["title": "Hello Vapor!"])
-    }
+	
+//    app.get { req in
+//        return req.view.render("index", ["title": "Hello Vapor!"])
+//    }
 
-    app.get("hello") { req -> String in
-        return "Hello, world!"
-    }
+	let websiteController = WebsiteController()
+	try app.register(collection: websiteController)
+	
+	let categoryController = WebsiteCategoryController()
+	try app.register(collection: categoryController)
+	
+	let extColorController = ExteriorColorController()
+	try app.register(collection: extColorController)
+	
+	let intColorController = InteriorColorController()
+	try app.register(collection: intColorController)
+	
+	let mfgController = ObjectMakeController()
+	try app.register(collection: mfgController)
+	
+	let objController = ObjectModelController()
+	try app.register(collection: objController)
+	
+	let objOptionController = ObjectOptionController()
+	try app.register(collection: objOptionController)
+	
+	let optionNdxController = ObjectOptionNdxController()
+	try app.register(collection: optionNdxController)
+	
+	let objTypeController = ObjectTypeController()
+	try app.register(collection: objTypeController)
+	
+	let optCategoryController = OptionCategoryController()
+	try app.register(collection: optCategoryController)
+	
+	let objImageController = SiteObjectImageController()
+	try app.register(collection: objImageController)
+	
+	let objectController = SiteObjectController()
+	try app.register(collection: objectController)
 
-    try app.register(collection: TodoController())
+	let usersController = UsersController()
+	try app.register(collection: usersController)
+
 }

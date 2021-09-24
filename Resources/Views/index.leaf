@@ -1,12 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-
-  <title>#(title)</title>
-</head>
-
-<body>
-  <h1>#(title)</h1>
-</body>
+	<head>
+		<meta charset="utf-8" />
+		<title>#(title) | Welcome</title>
+	</head>
+	<body>
+		<!-- 1 -->
+		<h1>Lexus Models</h1>
+		
+		<!-- 2 -->
+		#if(vehicles):
+		<!-- 3 -->
+		<table>
+			<thead>
+				<tr>
+					<th>        Description        </th>
+					<th>Features</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- 4 -->
+				#for(car in vehicles):
+				<tr>
+					<!-- 5 -->
+					<td> #(car.objectModelID) #(car.numDoors) Door</td>
+					<td>#(car.featureInfo)</td>
+				</tr>
+				#endfor
+			</tbody>
+		</table>
+		<!-- 6 -->
+		#else:
+		<h2>No vehicles found!</h2>
+		#endif	</body>
 </html>
