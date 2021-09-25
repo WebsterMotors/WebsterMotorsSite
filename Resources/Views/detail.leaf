@@ -1,0 +1,32 @@
+#extend("base"):
+#export("content"):
+
+#if(vehicle):
+<div class="album py-5 bg-light">
+	<div class="container">
+		
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+		<div class="col">
+			<div class="card shadow-sm">
+				<img class="rounded-lg-3" src=#(vehicle.objectDescription) alt="" width="100%><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">&ensp;#(vehicle.modelYear)&ensp;#(vehicle.modelName)</text><text x="50%" y="50%" fill="#eceeef" dy=".3em">&ensp;Mileage: #(vehicle.mileage) &emsp; Price: $ #(vehicle.listPrice)</text>
+				
+				<div class="card-body">
+					<p class="card-text">#(vehicle.featureInfo)</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+							<button type="button" class="btn btn-sm btn-outline-secondary"><a href="/acronyms/#(acronym.id)">View Details</a></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		#endif
+		
+	</div>
+	</div>
+</div>
+#endexport
+#endextend
+

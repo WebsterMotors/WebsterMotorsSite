@@ -1,36 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>#(title) | Welcome</title>
-	</head>
-	<body>
-		<!-- 1 -->
-		<h1>Lexus Models</h1>
+#extend("base"):
+#export("content"):
+
+<section class="py-5 text-center container">
+	<div class="row py-lg-5">
+		<div class="col-lg-6 col-md-8 mx-auto">
+			<h1 class="fw-light">Welcome to our site!</h1>
+			<p class="lead text-muted">Webster Motors is a family-owned business and has been located at 4133 Broadway, in North Knoxville, for over 50 years.</p>
+			<p class="lead text-muted">Most of our vehicles are local new car dealer trade ins.   A warranty is available on all of our vehicles.</p>
+			<p class="lead text-muted">We constantly update the information about our inventory on this site to show new arrivals and track vehicle availability of all models.  If you don't see the vehicle you're looking for, check back often.  Our inventory is constantly changing.</p>
+			<p>
+			<a href="#" class="btn btn-primary my-2">Main call to action</a>
+			<a href="#" class="btn btn-secondary my-2">Secondary action</a>
+			</p>
+		</div>
+	</div>
+</section>
+
+#if(vehicles):
+<div class="album py-5 bg-light">
+	<div class="container">
 		
-		<!-- 2 -->
-		#if(vehicles):
-		<!-- 3 -->
-		<table>
-			<thead>
-				<tr>
-					<th>        Description        </th>
-					<th>Features</th>
-				</tr>
-			</thead>
-			<tbody>
-				<!-- 4 -->
-				#for(car in vehicles):
-				<tr>
-					<!-- 5 -->
-					<td> #(car.objectModelID) #(car.numDoors) Door</td>
-					<td>#(car.featureInfo)</td>
-				</tr>
-				#endfor
-			</tbody>
-		</table>
-		<!-- 6 -->
-		#else:
-		<h2>No vehicles found!</h2>
-		#endif	</body>
-</html>
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+		#for(car in vehicles):
+		<div class="col">
+			<div class="card shadow-sm">
+				<img class="rounded-lg-3" src=#(car.objectDescription) alt="" width="100%><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">&ensp;#(car.modelYear)&ensp;#(car.modelName)</text><text x="50%" y="50%" fill="#eceeef" dy=".3em">&ensp;Mileage: #(car.mileage) &emsp; Price: $ #(car.listPrice)</text>
+				
+				<div class="card-body">
+					<p class="card-text">#(car.featureInfo)</p>
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+							<button type="button" class="btn btn-sm btn-outline-secondary"><a href="/siteObjectID/#(car.id)">View Details</a></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		#endfor
+		
+		#endif
+		
+	</div>
+	</div>
+</div>
+#endexport
+#endextend
