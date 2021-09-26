@@ -37,17 +37,26 @@ public func configure(_ app: Application) throws {
 	}
 	else
 	{
-		databaseName = "vapor_database"
-		databasePort = 5432
+		if let databaseURL = Environment.get("DATABASE_URL")
+		{
+			app.databases.use(try .postgres(
+				url: databaseURL
+			), as: .psql)
+		}
+		else
+		{
+			databaseName = "vapor_database"
+			databasePort = 5432
+			
+			app.databases.use(.postgres(
+				hostname: Environment.get("DATABASE_HOST") ?? "localhost",
+				port: databasePort,
+				username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
+				password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
+				database: Environment.get("DATABASE_NAME") ?? databaseName
+			), as: .psql)
+		}
 	}
-	
-	app.databases.use(.postgres(
-		hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-		port: databasePort,
-		username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
-		password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
-		database: Environment.get("DATABASE_NAME") ?? databaseName
-	), as: .psql)
 
 	app.migrations.add(CreateUser())
 	app.migrations.add(CreateExteriorColor())
