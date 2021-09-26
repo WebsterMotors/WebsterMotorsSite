@@ -40,6 +40,7 @@ struct CreateSiteObject: Migration {
 			.field("typeName", .string, .required)
 			.field("exteriorColor", .string)
 			.field("interiorColor", .string)
+			.field("heroImage", .string)
 
 			.unique(on: "siteObjectID")
 

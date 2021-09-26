@@ -87,6 +87,9 @@ final class SiteObject: Model, Content {
 	@Field(key: "changeToken")
 	var changeToken: Int32
 
+	@OptionalField(key: "heroImage")
+	var heroImage: String?
+
 	@OptionalField(key: "objectImages")
 	var objectImages: [String]?
 

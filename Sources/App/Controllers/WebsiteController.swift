@@ -27,11 +27,6 @@ struct WebsiteController: RouteCollection
 
 			let siteObjects = siteObjs.isEmpty ? nil : siteObjs
 			
-			for car in siteObjects!
-			{
-				car.objectDescription = car.objectImages![0]
-			}
-			
 			let context = IndexContext(
 				title: "WebsterMotors",
 				vehicles: siteObjects)
@@ -46,8 +41,6 @@ struct WebsiteController: RouteCollection
 		SiteObject.find(req.parameters.get("siteObjectID"), on: req.db)
 			.unwrap(or: Abort(.notFound))
 			.flatMap() { siteObject in
-				
-				siteObject.objectDescription = siteObject.objectImages![0]
 				
 				let context = SiteObjectContext(
 					title: siteObject.modelName,

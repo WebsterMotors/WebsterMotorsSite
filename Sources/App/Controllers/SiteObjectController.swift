@@ -80,6 +80,7 @@ struct SiteObjectController: RouteCollection
 				siteObject.interiorColor = updateData.interiorColor
 				siteObject.nextPhotoNdx = updateData.nextPhotoNdx
 				
+				siteObject.heroImage = updateData.heroImage
 				siteObject.objectImages = updateData.objectImages
 
 				siteObject.changeToken = updateData.changeToken
@@ -171,6 +172,7 @@ struct SiteObjectData: Content
 	let nextPhotoNdx: Int32?
 	
 	let objectImages: [String]?
+	let heroImage: String?
 
 	let changeToken: Int32
 }
