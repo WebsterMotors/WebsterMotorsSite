@@ -18,7 +18,9 @@ struct SiteObjectController: RouteCollection
 		objectRoutes.get(":objectID", use: getHandler)
 		objectRoutes.get("siteObjectID", ":siteObjectID", use: getSiteObjectIDHandler)
 		objectRoutes.get("search", use: searchHandler)
-		
+
+		objectRoutes.get("OptionItems", use: findOptionItemsHandler)
+
 		//		categoriesRoute.get(":objectID", "acronyms", use: getAcronymsHandler)
 		
 		let tokenAuthMiddleware = Token.authenticator()
@@ -105,9 +107,7 @@ struct SiteObjectController: RouteCollection
 		guard let searchTerm = req.parameters.get("siteObjectID") else {
 			throw Abort(.badRequest)
 		}
-		
-		print("siteObjectID:  \(searchTerm)")
-		
+				
 		return SiteObject.query(on: req.db).group(.or) { or in
 			or.filter(\.$siteObjectID == searchTerm)
 		}.first().unwrap(or: Abort(.notFound))
@@ -116,24 +116,34 @@ struct SiteObjectController: RouteCollection
 	func searchHandler(_ req: Request) throws -> EventLoopFuture<SiteObject>
 	{
 		guard let searchTerm = req
-				.query[String.self, at: "parm"] else {
+				.query[String.self, at: "vin"] else {
 			throw Abort(.badRequest)
 		}
 		return SiteObject.query(on: req.db).group(.or) { or in
-			or.filter(\.$objectDescription == searchTerm)
+			or.filter(\.$vinNumber == searchTerm)
 		}.first().unwrap(or: Abort(.notFound))
 	}
 	
-	/*
-	func getAcronymsHandler(_ req: Request) -> EventLoopFuture<[Acronym]> {
-	Category.find(req.parameters.get("objectID"), on: req.db)
-	.unwrap(or: Abort(.notFound))
-	.flatMap { category in
-	category.$acronyms.get(on: req.db)
-	}
-	}
-	*/
+
 	
+	func findOptionItemsHandler(_ req: Request) throws -> EventLoopFuture<[ObjectOptionItem]>
+	{
+		guard let objectID = req
+				.query[String.self, at: "object"] else {
+					throw Abort(.badRequest)
+				}
+		
+		guard let categoryID = req
+				.query[String.self, at: "category"] else {
+					throw Abort(.badRequest)
+				}
+		
+		return ObjectOptionItem.query(on: req.db).group(.and) { group in
+			group.filter(\.$siteObjectID == objectID)
+			group.filter(\.$optionCategoryID == categoryID)
+		}.all()
+	}
+
 }
 
 

@@ -86,8 +86,6 @@ struct WebsiteCategoryController: RouteCollection
 			throw Abort(.badRequest)
 		}
 		
-		print("siteCategoryID:  \(searchTerm)")
-		
 		return WebsiteCategory.query(on: req.db).group(.or) { or in
 			or.filter(\.$webCatogoryID == searchTerm)
 		}.first().unwrap(or: Abort(.notFound))
@@ -107,15 +105,6 @@ struct WebsiteCategoryController: RouteCollection
 		}.first().unwrap(or: Abort(.notFound))
 	}
 
-/*
-	func getAcronymsHandler(_ req: Request) -> EventLoopFuture<[Acronym]> {
-		Category.find(req.parameters.get("categoryID"), on: req.db)
-			.unwrap(or: Abort(.notFound))
-			.flatMap { category in
-				category.$acronyms.get(on: req.db)
-			}
-	}
-*/
 	
 }
 

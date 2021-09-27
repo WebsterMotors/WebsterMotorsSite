@@ -88,8 +88,6 @@ struct ExteriorColorController: RouteCollection
 			throw Abort(.badRequest)
 		}
 		
-		print("exteriorColorID:  \(searchTerm)")
-		
 		return ExteriorColor.query(on: req.db).group(.or) { or in
 			or.filter(\.$exteriorColorID == searchTerm)
 		}.first().unwrap(or: Abort(.notFound))

@@ -79,8 +79,6 @@ struct ObjectMakeController: RouteCollection
 			throw Abort(.badRequest)
 		}
 		
-		print("MakeID:  \(searchTerm)")
-		
 		return ObjectMake.query(on: req.db).group(.or) { or in
 			or.filter(\.$makeID == searchTerm)
 		}.first().unwrap(or: Abort(.notFound))

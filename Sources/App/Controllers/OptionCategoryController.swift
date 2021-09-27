@@ -17,7 +17,8 @@ struct OptionCategoryController: RouteCollection
 		optCategory.get(use: getAllHandler)
 		optCategory.get(":categoryID", use: getHandler)
 		optCategory.get("search", use: searchHandler)
-		
+		optCategory.get("optionCategoryID", ":optionCategoryID", use: getOptionCategoryIDHandler)
+
 		//		categoriesRoute.get(":categoryID", "acronyms", use: getAcronymsHandler)
 		
 		let tokenAuthMiddleware = Token.authenticator()
@@ -79,16 +80,19 @@ struct OptionCategoryController: RouteCollection
 		}.first().unwrap(or: Abort(.notFound))
 	}
 	
-	/*
-	func getAcronymsHandler(_ req: Request) -> EventLoopFuture<[Acronym]> {
-	Category.find(req.parameters.get("categoryID"), on: req.db)
-	.unwrap(or: Abort(.notFound))
-	.flatMap { category in
-	category.$acronyms.get(on: req.db)
-	}
-	}
-	*/
 	
+	func getOptionCategoryIDHandler(_ req: Request) throws -> EventLoopFuture<OptionCategory>
+	{
+		guard let searchTerm = req.parameters.get("optionCategoryID") else {
+			throw Abort(.badRequest)
+		}
+		
+		return OptionCategory.query(on: req.db).group(.or) { or in
+			or.filter(\.$optionCategoryID == searchTerm)
+		}.first().unwrap(or: Abort(.notFound))
+	}
+
+		
 }
 
 

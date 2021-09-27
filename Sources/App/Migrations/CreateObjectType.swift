@@ -19,7 +19,9 @@ struct CreateObjectType: Migration {
 			.field("name", .string, .required)
 			.field("objectTypeID", .string, .required)
 			.field("changeToken", .int32, .required)
-			
+
+			.unique(on: "objectTypeID")
+
 			.create()
 	}
 	

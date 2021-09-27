@@ -77,8 +77,6 @@ struct InteriorColorController: RouteCollection
 			throw Abort(.badRequest)
 		}
 		
-		print("interiorColorID:  \(searchTerm)")
-		
 		return InteriorColor.query(on: req.db).group(.or) { or in
 			or.filter(\.$interiorColorID == searchTerm)
 		}.first().unwrap(or: Abort(.notFound))

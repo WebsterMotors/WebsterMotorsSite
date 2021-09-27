@@ -23,12 +23,12 @@ final class OptionCategory: Model, Content {
 	
 	@Field(key: "optionCategoryID")
 	var optionCategoryID: String
-	
-	@Field(key: "nextOptionID")
-	var nextOptionID: Int32
 
 	@Field(key: "displayNdx")
 	var displayNdx: Int32
+
+	@OptionalField(key: "nextDisplayNdx")
+	var nextDisplayNdx: Int32?
 
 	@Field(key: "changeToken")
 	var changeToken: Int32
@@ -37,11 +37,10 @@ final class OptionCategory: Model, Content {
 	init() {}
 	
 	
-	init(id: UUID? = nil, categoryName: String, optionCategoryID: String, nextOptionID: Int32, displayNdx: Int32) {
+	init(id: UUID? = nil, categoryName: String, optionCategoryID: String, displayNdx: Int32) {
 		self.id = id
 		self.categoryName = categoryName
 		self.optionCategoryID = optionCategoryID
-		self.nextOptionID = nextOptionID
 		self.displayNdx = displayNdx
 
 		self.changeToken = 0

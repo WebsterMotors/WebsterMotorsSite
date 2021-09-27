@@ -85,8 +85,6 @@ struct SiteObjectImageController: RouteCollection
 			throw Abort(.badRequest)
 		}
 		
-		print("siteObjectImageID:  \(searchTerm)")
-		
 		return SiteObjectImage.query(on: req.db).group(.or) { or in
 			or.filter(\.$siteObjectImageID == searchTerm)
 		}.first().unwrap(or: Abort(.notFound))
@@ -116,16 +114,6 @@ struct SiteObjectImageController: RouteCollection
 			or.filter(\.$fileName == searchTerm)
 		}.first().unwrap(or: Abort(.notFound))
 	}
-	
-	/*
-	func getAcronymsHandler(_ req: Request) -> EventLoopFuture<[Acronym]> {
-	Category.find(req.parameters.get("imageID"), on: req.db)
-	.unwrap(or: Abort(.notFound))
-	.flatMap { category in
-	category.$acronyms.get(on: req.db)
-	}
-	}
-	*/
 	
 }
 

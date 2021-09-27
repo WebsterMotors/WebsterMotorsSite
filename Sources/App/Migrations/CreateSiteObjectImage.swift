@@ -29,6 +29,8 @@ struct CreateSiteObjectImage: Migration {
 			
 			.field("changeToken", .int32, .required)
 
+			.unique(on: "siteObjectImageID")
+
 			.create()
 	}
 	

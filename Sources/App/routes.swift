@@ -27,10 +27,10 @@ func routes(_ app: Application) throws {
 	let objController = ObjectModelController()
 	try app.register(collection: objController)
 	
-	let objOptionController = ObjectOptionController()
+	let objOptionController = OptionItemController()
 	try app.register(collection: objOptionController)
 	
-	let optionNdxController = ObjectOptionNdxController()
+	let optionNdxController = ObjectOptionItemController()
 	try app.register(collection: optionNdxController)
 	
 	let objTypeController = ObjectTypeController()

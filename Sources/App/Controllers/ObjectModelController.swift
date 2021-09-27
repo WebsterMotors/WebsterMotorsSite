@@ -77,8 +77,6 @@ struct ObjectModelController: RouteCollection
 			throw Abort(.badRequest)
 		}
 		
-		print("objectModelID:  \(searchTerm)")
-		
 		return ObjectModel.query(on: req.db).group(.or) { or in
 			or.filter(\.$objectModelID == searchTerm)
 		}.first().unwrap(or: Abort(.notFound))
@@ -95,15 +93,18 @@ struct ObjectModelController: RouteCollection
 		}.first().unwrap(or: Abort(.notFound))
 	}
 	
-	/*
-	func getAcronymsHandler(_ req: Request) -> EventLoopFuture<[Acronym]> {
-	Category.find(req.parameters.get("categoryID"), on: req.db)
-	.unwrap(or: Abort(.notFound))
-	.flatMap { category in
-	category.$acronyms.get(on: req.db)
+	
+	func getOptionItemIDHandler(_ req: Request) throws -> EventLoopFuture<OptionItem>
+	{
+		guard let searchTerm = req.parameters.get("optionItemID") else {
+			throw Abort(.badRequest)
+		}
+		
+		return OptionItem.query(on: req.db).group(.or) { or in
+			or.filter(\.$optionItemID == searchTerm)
+		}.first().unwrap(or: Abort(.notFound))
 	}
-	}
-	*/
+
 	
 }
 

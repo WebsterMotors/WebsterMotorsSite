@@ -20,11 +20,11 @@ public func configure(_ app: Application) throws {
 	
 	app.middleware.use(corsMiddleware)
 
-	let databaseName: String
-	let databasePort: Int
-	
 	if (app.environment == .testing)
 	{
+		var databaseName: String = "vapor-test"
+		var databasePort: Int = 5432
+		
 		databaseName = "vapor-test"
 		if let testPort = Environment.get("DATABASE_PORT")
 		{
@@ -37,41 +37,58 @@ public func configure(_ app: Application) throws {
 	}
 	else
 	{
-		if let databaseURL = Environment.get("DATABASE_URL"), var postgresConfig = PostgresConfiguration(url: databaseURL) {
-			postgresConfig.tlsConfiguration = .forClient(certificateVerification: .none)
-			app.databases.use(.postgres(
-				configuration: postgresConfig
-			), as: .psql)
+		if let runEnv = Environment.get("ENV_TYPE")
+		{
+			let databaseName: String = "vapor-test"
+			var databasePort: Int = 5432
+			
+			if runEnv ==  "Debug"
+			{
+				if let portNum: String = Environment.get("DATABASE_PORT")
+				{
+					databasePort = portNum.codingKey.intValue ?? 5432
+				}
+				
+				app.databases.use(.postgres(
+					hostname: Environment.get("DATABASE_HOST") ?? "localhost",
+					port: databasePort,
+					username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
+					password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
+					database: Environment.get("DATABASE_NAME") ?? databaseName
+				), as: .psql)
+			}
+			
 		}
 		else
 		{
-			fatalError("DATABASE_URL not configured")
-//			databaseName = "vapor_database"
-//			databasePort = 5432
-//
-//			app.databases.use(.postgres(
-//				hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-//				port: databasePort,
-//				username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
-//				password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
-//				database: Environment.get("DATABASE_NAME") ?? databaseName
-//			), as: .psql)
+			if let databaseURL = Environment.get("DATABASE_URL"), var postgresConfig = PostgresConfiguration(url: databaseURL) {
+				postgresConfig.tlsConfiguration = .forClient(certificateVerification: .none)
+				app.databases.use(.postgres(
+					configuration: postgresConfig
+				), as: .psql)
+			}
+			else
+			{
+				fatalError("DATABASE_URL not configured")
+			}
 		}
 	}
+		
 
 	app.migrations.add(CreateUser())
 	app.migrations.add(CreateExteriorColor())
 	app.migrations.add(CreateInteriorColor())
 	app.migrations.add(CreateObjectMake())
 	app.migrations.add(CreateObjectModel())
-	app.migrations.add(CreateObjectOption())
-	app.migrations.add(CreateObjectOptionNdx())
+	app.migrations.add(CreateOptionItem())
+	app.migrations.add(CreateObjectOptionItem())
 	app.migrations.add(CreateToken())
 	app.migrations.add(CreateObjectType())
 	app.migrations.add(CreateOptionCategory())
 	app.migrations.add(CreateSiteObjectImage())
 	app.migrations.add(CreateSiteObject())
 	app.migrations.add(CreateWebsiteCategory())
+	app.migrations.add(CreateCategoryList())
 	app.migrations.add(CreateSiteAdminGlobal())
 	app.migrations.add(CreateAdminUser())
 

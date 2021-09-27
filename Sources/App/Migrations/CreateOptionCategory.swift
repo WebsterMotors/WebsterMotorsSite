@@ -18,10 +18,11 @@ struct CreateOptionCategory: Migration {
 			
 			.field("categoryName", .string, .required)
 			.field("optionCategoryID", .string, .required)
-			.field("nextOptionID", .int32, .required)
 			.field("displayNdx", .int32, .required)
 			.field("changeToken", .int32, .required)
 	
+			.field("nextDisplayNdx", .int32)
+
 			.unique(on: "optionCategoryID")
 
 			.create()
