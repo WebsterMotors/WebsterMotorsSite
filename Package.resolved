@@ -65,6 +65,15 @@
         }
       },
       {
+        "package": "LeafErrorMiddleware",
+        "repositoryURL": "https://github.com/brokenhandsio/leaf-error-middleware.git",
+        "state": {
+          "branch": null,
+          "revision": "f2f7f54449d5b09a76c408587edfc2944da3a697",
+          "version": "3.1.0"
+        }
+      },
+      {
         "package": "leaf-kit",
         "repositoryURL": "https://github.com/vapor/leaf-kit.git",
         "state": {

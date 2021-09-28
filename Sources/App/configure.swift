@@ -1,11 +1,18 @@
 import Fluent
 import FluentPostgresDriver
 import Leaf
+import LeafErrorMiddleware
 import Vapor
 
 // configures your application
 public func configure(_ app: Application) throws {
-   
+ 
+//	let leafMiddleware = LeafErrorMiddleware() { status, error, req -> EventLoopFuture<SomeContext> in
+//		return req.eventLoop.future(SomeContext())
+//	}
+	
+	app.middleware.use(LeafErrorMiddlewareDefaultGenerator.build())
+	
 	// uncomment to serve files from /Public folder
 	//
 	app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
