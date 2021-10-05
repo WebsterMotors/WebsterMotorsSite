@@ -58,6 +58,8 @@ struct ObjectCategoryListController: RouteCollection
 				objectModel.categoryListID = updateData.categoryListID
 				objectModel.itemsList = updateData.itemsList
 				
+				objectModel.displayNdx = updateData.displayNdx
+
 				return objectModel.save(on: req.db).map {
 					objectModel
 				}
@@ -108,4 +110,6 @@ struct ObjectCategoryListData: Content
 	
 	let categoryListID: String
 	let itemsList: String
+	
+	let displayNdx: Int32?
 }

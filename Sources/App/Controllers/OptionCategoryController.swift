@@ -53,6 +53,8 @@ struct OptionCategoryController: RouteCollection
 				optCategory.categoryName = updateData.categoryName
 				optCategory.displayNdx = updateData.displayNdx
 				
+				optCategory.nextDisplayNdx = updateData.nextDisplayNdx
+				
 				optCategory.changeToken = updateData.changeToken
 				return optCategory.save(on: req.db).map {
 					optCategory
@@ -100,9 +102,9 @@ struct OptionCategoryData: Content
 {
 	let categoryName: String
 	let optionCategoryID: String
-	let nextOptionID: Int32
-	
 	let displayNdx: Int32
+	
+	let nextDisplayNdx: Int32?
 	
 	let changeToken: Int32
 }
