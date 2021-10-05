@@ -18,6 +18,8 @@ struct CreateCategoryList: Migration {
 			.field("categoryListID", .string, .required)
 			.field("itemsList", .string, .required)
 		
+			.field("displayNdx", .int32)
+
 			.unique(on: "categoryListID")
 		
 			.create()

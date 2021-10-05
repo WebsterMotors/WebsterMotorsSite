@@ -31,7 +31,10 @@ final class ObjectCategoryList: Model, Content {
 	
 	@Field(key: "itemsList")
 	var itemsList: String
-	
+
+	@OptionalField(key: "displayNdx")
+	var displayNdx: Int32?
+
 	init() {}
 	
 	

@@ -19,7 +19,8 @@ struct ObjectOptionItemController: RouteCollection
 		optionRoute.get("search", use: searchHandler)
 		optionRoute.get("objectOptionID", ":objectOptionID", use: getObjectOptionIDHandler)
 		optionRoute.get("objectOptionFor", use: findObjectOptionHandler)
-
+		optionRoute.get("catObjectOption", use: findCategoryObjectOptionsHandler)
+		
 		//		categoriesRoute.get(":categoryID", "acronyms", use: getAcronymsHandler)
 		
 		let tokenAuthMiddleware = Token.authenticator()
@@ -101,6 +102,26 @@ struct ObjectOptionItemController: RouteCollection
 		}.first().unwrap(or: Abort(.notFound))
 	}
 	
+	
+	
+	func findCategoryObjectOptionsHandler(_ req: Request) throws -> EventLoopFuture<[ObjectOptionItem]>
+	{
+		guard let objectID = req
+				.query[String.self, at: "object"] else {
+					throw Abort(.badRequest)
+				}
+		
+		guard let categoryID = req
+				.query[String.self, at: "category"] else {
+					throw Abort(.badRequest)
+				}
+		
+		return ObjectOptionItem.query(on: req.db).group(.and) { group in
+			group.filter(\.$siteObjectID == objectID)
+			group.filter(\.$optionCategoryID == categoryID)
+		}.all()
+	}
+
 	
 	
 	func findObjectOptionHandler(_ req: Request) throws -> EventLoopFuture<[ObjectOptionItem]>
