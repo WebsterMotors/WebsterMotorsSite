@@ -65,7 +65,7 @@ struct ObjectMakeController: RouteCollection
 
 	
 	func getAllHandler(_ req: Request) -> EventLoopFuture<[ObjectMake]> {
-		ObjectMake.query(on: req.db).all()
+		ObjectMake.query(on: req.db).sort(\.$name).all()
 	}
 	
 	func getHandler(_ req: Request) -> EventLoopFuture<ObjectMake> {

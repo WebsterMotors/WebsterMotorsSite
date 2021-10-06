@@ -124,7 +124,7 @@ struct ObjectOptionItemController: RouteCollection
 
 	
 	
-	func findObjectOptionHandler(_ req: Request) throws -> EventLoopFuture<[ObjectOptionItem]>
+	func findObjectOptionHandler(_ req: Request) throws -> EventLoopFuture<ObjectOptionItem>
 	{
 		guard let objectID = req
 				.query[String.self, at: "object"] else {
@@ -135,17 +135,11 @@ struct ObjectOptionItemController: RouteCollection
 				.query[String.self, at: "option"] else {
 					throw Abort(.badRequest)
 				}
-		
-		guard let categoryID = req
-				.query[String.self, at: "category"] else {
-					throw Abort(.badRequest)
-				}
 
 		return ObjectOptionItem.query(on: req.db).group(.and) { group in
 			group.filter(\.$siteObjectID == objectID)
-			group.filter(\.$optionCategoryID == categoryID)
 			group.filter(\.$optionItemID == optionID)
-		}.all()
+		}.first().unwrap(or: Abort(.notFound))
 	}
 
 	/*

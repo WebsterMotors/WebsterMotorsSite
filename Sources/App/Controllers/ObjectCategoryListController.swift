@@ -15,10 +15,12 @@ struct ObjectCategoryListController: RouteCollection
 		
 		let listRoute = routes.grouped("api", "category-list")
 		listRoute.get(use: getAllHandler)
-		listRoute.get("categoryListID", ":categoryListID", use: getCategoryListIDHandler)
 		listRoute.get(":modelID", use: getHandler)
+		listRoute.get("siteObjectID", ":siteObjectID", use: getSiteObjectListIDHandler)
+		listRoute.get("categoryListID", ":categoryListID", use: getCategoryListIDHandler)
 		listRoute.get("search", use: searchHandler)
-		
+		listRoute.get("listCategoryObject", use: findCategoryObjectHandler)
+
 		//		categoriesRoute.get(":categoryID", "acronyms", use: getAcronymsHandler)
 		
 		let tokenAuthMiddleware = Token.authenticator()
@@ -76,6 +78,18 @@ struct ObjectCategoryListController: RouteCollection
 	}
 	
 	
+	func getSiteObjectListIDHandler(_ req: Request) throws -> EventLoopFuture<[ObjectCategoryList]>
+	{
+		guard let searchTerm = req.parameters.get("siteObjectID") else {
+			throw Abort(.badRequest)
+		}
+		
+		return ObjectCategoryList.query(on: req.db).group(.or) { or in
+			or.filter(\.$siteObjectID == searchTerm)
+		}.sort(\.$displayNdx).all()
+	}
+
+	
 	func getCategoryListIDHandler(_ req: Request) throws -> EventLoopFuture<ObjectCategoryList>
 	{
 		guard let searchTerm = req.parameters.get("categoryListID") else {
@@ -98,6 +112,26 @@ struct ObjectCategoryListController: RouteCollection
 		}.all()
 	}
 	
+	
+	
+	func findCategoryObjectHandler(_ req: Request) throws -> EventLoopFuture<ObjectCategoryList>
+	{
+		guard let objectID = req
+				.query[String.self, at: "object"] else {
+					throw Abort(.badRequest)
+				}
+		
+		guard let categoryID = req
+				.query[String.self, at: "category"] else {
+					throw Abort(.badRequest)
+				}
+		
+		return ObjectCategoryList.query(on: req.db).group(.and) { group in
+			group.filter(\.$siteObjectID == objectID)
+			group.filter(\.$optionCategoryID == categoryID)
+		}.first().unwrap(or: Abort(.notFound))
+	}
+
 }
 
 

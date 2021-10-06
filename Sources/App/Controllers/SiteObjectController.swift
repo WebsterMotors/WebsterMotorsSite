@@ -94,7 +94,7 @@ struct SiteObjectController: RouteCollection
 	
 	
 	func getAllHandler(_ req: Request) -> EventLoopFuture<[SiteObject]> {
-		SiteObject.query(on: req.db).all()
+		SiteObject.query(on: req.db).sort(\.$makeID).sort(\.$modelYear, .descending).all()
 	}
 	
 	func getHandler(_ req: Request) -> EventLoopFuture<SiteObject> {

@@ -64,7 +64,7 @@ struct OptionCategoryController: RouteCollection
 	
 	
 	func getAllHandler(_ req: Request) -> EventLoopFuture<[OptionCategory]> {
-		OptionCategory.query(on: req.db).all()
+		OptionCategory.query(on: req.db).sort(\.$displayNdx).all()
 	}
 	
 	func getHandler(_ req: Request) -> EventLoopFuture<OptionCategory> {

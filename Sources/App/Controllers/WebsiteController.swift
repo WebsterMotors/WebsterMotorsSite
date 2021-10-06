@@ -22,7 +22,7 @@ struct WebsiteController: RouteCollection
 
 	func indexHandler(_ req: Request) -> EventLoopFuture<View> {
 
-		SiteObject.query(on: req.db).all().flatMap { siteObjs in
+		SiteObject.query(on: req.db).sort(\.$makeID).sort(\.$modelYear, .descending).all().flatMap { siteObjs in
 
 			let siteObjects = siteObjs.isEmpty ? nil : siteObjs
 			
