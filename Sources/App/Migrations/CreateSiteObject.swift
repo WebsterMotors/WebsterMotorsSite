@@ -21,6 +21,7 @@ struct CreateSiteObject: Migration {
 			.field("objectModelID", .string, .required)
 			.field("objectTypeID", .string, .required)
 			.field("makeID", .string, .required)
+			.field("makeName", .string, .required)
 			.field("featureInfo", .string, .required)
 			.field("vinNumber", .string)
 			.field("modelYear", .int32)

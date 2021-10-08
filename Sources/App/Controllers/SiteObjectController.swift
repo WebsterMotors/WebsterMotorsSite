@@ -61,6 +61,7 @@ struct SiteObjectController: RouteCollection
 				siteObject.typeName = updateData.typeName
 				
 				siteObject.makeID = updateData.makeID
+				siteObject.makeName = updateData.makeName
 
 				siteObject.featureInfo = updateData.featureInfo
 				
@@ -94,7 +95,7 @@ struct SiteObjectController: RouteCollection
 	
 	
 	func getAllHandler(_ req: Request) -> EventLoopFuture<[SiteObject]> {
-		SiteObject.query(on: req.db).sort(\.$makeID).sort(\.$modelYear, .descending).all()
+		SiteObject.query(on: req.db).sort(\.$makeName).sort(\.$modelYear, .descending).all()
 	}
 	
 	func getHandler(_ req: Request) -> EventLoopFuture<SiteObject> {
@@ -159,6 +160,7 @@ struct SiteObjectData: Content
 	let typeName: StringLiteralType
 	
 	let makeID: String
+	let makeName: String
 
 	let featureInfo: String
 

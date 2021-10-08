@@ -71,7 +71,7 @@ struct WebsiteCategoryController: RouteCollection
 	
 
 	func getAllHandler(_ req: Request) -> EventLoopFuture<[WebsiteCategory]> {
-		WebsiteCategory.query(on: req.db).all()
+		WebsiteCategory.query(on: req.db).sort(\.$navigationOrderNdx).all()
 	}
 	
 	

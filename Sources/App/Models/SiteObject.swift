@@ -38,6 +38,9 @@ final class SiteObject: Model, Content {
 
 	@Field(key: "makeID")
 	var makeID: String
+	
+	@Field(key: "makeName")
+	var makeName: String
 
 	@Field(key: "featureInfo")
 	var featureInfo: String
@@ -108,5 +111,8 @@ final class SiteObject: Model, Content {
 		self.hideListing = false
 		self.showInSpecials = false
 		self.changeToken = 0
+		
+		self.makeName = ""
+		self.modelName = ""
 	}
 }
