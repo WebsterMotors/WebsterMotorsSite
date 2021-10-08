@@ -419,7 +419,6 @@
 								</ul>
 							</div>
 						</li>
-						
 						<li class="nav-item navbar-collapse">
 							<a href="#navbarCollapseProjects" class="nav-link collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="navbarCollapseProjects">
 								<span class="nav-link-name">vehicles</span>
@@ -462,8 +461,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-1 d-none d-md-block"></div>
+		<!--		<div class="col-md-1 d-none d-md-block"></div> -->
 	</div>
 </div>
-</div>
+
 

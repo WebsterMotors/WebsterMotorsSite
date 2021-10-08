@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<title>Webster Motors of Knoxville</title>
-				<meta name="description" content="Webster Motors"
-					<meta name="author" content="Shady Cove Press">
-						<link rel="icon" type="image/png" href="assets/images/favicon.png">
-							<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-								<!-- Google Fonts -->
-								<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-									<!-- START: Styles -->
-									<!-- Swiper -->
-									<link rel="stylesheet" href="assets/vendor/swiper/dist/css/swiper.min.css" />
-									<!-- Fancybox -->
-									<link rel="stylesheet" href="assets/vendor/fancybox/dist/jquery.fancybox.min.css" />
-									<!-- Themebau -->
-									<link rel="stylesheet" href="assets/css/themebau.min.css">
-										<!-- Custom Styles -->
-										<link rel="stylesheet" href="assets/css/custom.css">
-											<!-- END: Styles -->
-											<!-- jQuery -->
-											<script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-										</head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Webster Motors of Knoxville</title>
+		<meta name="description" content="Webster Motors" />
+		<meta name="author" content="Shady Cove Press" />
+		<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+		<!-- START: Styles -->
+		<!-- Swiper -->
+		<link rel="stylesheet" href="assets/vendor/swiper/dist/css/swiper.min.css" />
+		<!-- Fancybox -->
+		<link rel="stylesheet" href="assets/vendor/fancybox/dist/jquery.fancybox.min.css" />
+		<!-- Themebau -->
+		<link rel="stylesheet" href="assets/css/themebau.min.css" />
+		<!-- Custom Styles -->
+		<link rel="stylesheet" href="assets/css/custom.css" />
+		<!-- END: Styles -->
+		<!-- jQuery -->
+		<script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+	</head>
+	<body>
 		#import("content")
 		<!-- START: Scripts -->
 		<!-- Object Fit Polyfill -->
@@ -57,5 +58,5 @@
 		<!-- Themebau -->
 		<script src="assets/js/themebau.min.js"></script>
 		<!-- END: Scripts -->
-		</body>
+	</body>
 </html>

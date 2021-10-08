@@ -2,49 +2,54 @@
 #export("content"):
 #extend("topnav"):
 #endextend
-<body>
-	<section class="py-5 text-center container">
+<div class="content-wrap">
+<section class="py-5 text-center container">
 		<div class="row py-lg-5">
 			<div class="col-lg-6 col-md-8 mx-auto">
-				<h1 class="fw-light">Please Pardon Our Clutter As We Update The Site!</h1>
-				<h3 class="fw-light">The information is current, but maybe a little disorganized.</h3>
-				<p class="lead text-muted">Webster Motors is a family-owned business and has been located at 4133 Broadway, in North Knoxville, for over 50 years.</p>
-				<p class="lead text-muted">Most of our vehicles are local new car dealer trade ins.   A warranty is available on all of our vehicles.</p>
-				<p class="lead text-muted">We constantly update the information about our inventory on this site to show new arrivals and track vehicle availability of all models.  If you don't see the vehicle you're looking for, check back often.  Our inventory is constantly changing.</p>
-				<p>
-				<a href="#" class="btn btn-primary my-2">Main call to action</a>
-				<a href="#" class="btn btn-secondary my-2">Secondary action</a>
-				</p>
+				<h2 class="fw-light">Please Pardon Our Clutter As We Update The Site!</h2>
+				<h4 class="fw-light">The information is current, but could be a little disorganized.</h4>
 			</div>
 		</div>
 	</section>
-	
-	#if(vehicles):
-	<div class="album py-5 bg-light">
-		<div class="container">
-			
-			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+	<div class="container isotope text-center"><span><h3 class="fw-dark">Our Vehicle Inventory</h3></span></div>
+	<div class="container isotope mt-90">
+		<ul class="nav justify-content-center isotope-options mb-60 show-on-scroll" data-show-duration="500">
+			<li class="nav-item active show-on-scroll" data-show-duration="500" data-show-distance="10" data-show-delay="100">
+				<a href="#" data-filter="all" class="nav-link">
+					<div class="nav-link-name">all vehicles</div>
+				</a>
+			</li>
+			#if(page_nav):
+			#for(nav_item in page_nav):
+			<li class="nav-item show-on-scroll" data-show-duration="500" data-show-distance="10" data-show-delay="150">
+				<a href="#" data-filter="#(nav_item)" class="nav-link">
+					<div class="nav-link-name">#(nav_item)</div>
+				</a>
+			</li>
+			#endfor
+			#endif
+		</ul>
+		<div class="pt-30 show-on-scroll" data-show-duration="800">
+			<div class="row gh-1 gv-3 isotope-grid">
+				#if(vehicles):
 				#for(car in vehicles):
-				<div class="col">
-					<div class="card shadow-sm">
-						<img class="rounded-lg-3" src=#(car.heroImage) alt="" width="100%><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">&ensp;#(car.modelYear)&ensp;#(car.modelName)</text><text x="50%" y="50%" fill="#eceeef" dy=".3em">&ensp;Mileage: #(car.mileage) &emsp; Price: $ #(car.listPrice)</text>
-	
-	<div class="card-body">
-	 <p class="card-text">#(car.featureInfo)</p>
-	 <div class="d-flex justify-content-between align-items-center">
-	  <div class="btn-group">
-	   <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/siteObjectID/#(car.id)">View Details</a></button>
-	  </div>
-	 </div>
+				<div class="col-12 col-sm-6 col-md-4 isotope-item" data-filters="#(car.makeName)">
+					<a class="card card-portfolio card-default card-image-md card-hover-frame" href="siteObjectID?object=#(car.siteObjectID)">
+						<span class="card-img" data-cursor-style="cursor-circle" data-cursor-text="view">
+							<img src="#(car.heroImage)" alt="">
+						</span>
+						<span class="card-body">
+							<span class="card-title h5">#(car.makeName)&ensp;#(car.modelName)</span>
+							<span class="card-category subtitle">#(car.modelYear) &emsp;#(car.mileage)&ensp;miles &emsp;$ #(car.listPrice) </span>
+						</span>
+					</a>
+				</div>
+				#endfor
+				#endif
+			</div>
+		</div>
 	</div>
-   </div>
-  </div>
-  #endfor
-  
-  #endif
-  
- </div>
- </div>
+	<div class="container isotope mt-60"><span><h2 class="fw-light"> </h2></span></div>
 </div>
 #extend("footer"):
 #endextend
