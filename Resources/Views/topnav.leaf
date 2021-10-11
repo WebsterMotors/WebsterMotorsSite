@@ -36,7 +36,7 @@
 				</div>
 			</li>
 			<li class="nav-item navbar-dropdown active">
-				<a href="portfolio-col-1-style-1.html" class="nav-link">
+				<a href="index" class="nav-link">
 					<span class="nav-link-name">cars</span>
 					<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -45,7 +45,7 @@
 				<div class="dropdown-menu">
 					<ul class="nav navbar-nav">
 						<li class="nav-item navbar-dropdown">
-							<a href="portfolio-col-1-style-1.html" class="nav-link">
+							<a href="index" class="nav-link">
 								<span class="nav-link-name">1 column</span>
 								<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -54,12 +54,12 @@
 							<div class="dropdown-menu">
 								<ul class="nav navbar-nav">
 									<li class="nav-item">
-										<a href="portfolio-col-1-style-1.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 1</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-1-style-2.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 2</span>
 										</a>
 									</li>
@@ -67,7 +67,7 @@
 							</div>
 						</li>
 						<li class="nav-item navbar-dropdown">
-							<a href="portfolio-col-2-style-1.html" class="nav-link">
+							<a href="index" class="nav-link">
 								<span class="nav-link-name">2 column</span>
 								<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -76,32 +76,32 @@
 							<div class="dropdown-menu">
 								<ul class="nav navbar-nav">
 									<li class="nav-item">
-										<a href="portfolio-col-2-style-1.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 1</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-2-style-2.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 2</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-2-style-3.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 3</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-2-style-4.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 4</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-2-style-5.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 5</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-2-style-6.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 6</span>
 										</a>
 									</li>
@@ -109,7 +109,7 @@
 							</div>
 						</li>
 						<li class="nav-item navbar-dropdown">
-							<a href="portfolio-col-3-style-1.html" class="nav-link">
+							<a href="index" class="nav-link">
 								<span class="nav-link-name">3 column</span>
 								<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -118,27 +118,27 @@
 							<div class="dropdown-menu">
 								<ul class="nav navbar-nav">
 									<li class="nav-item">
-										<a href="portfolio-col-3-style-1.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 1</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-3-style-2.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 2</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-3-style-3.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 3</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-3-style-4.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 4</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-3-style-5.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 5</span>
 										</a>
 									</li>
@@ -146,7 +146,7 @@
 							</div>
 						</li>
 						<li class="nav-item navbar-dropdown">
-							<a href="portfolio-col-4-style-1.html" class="nav-link">
+							<a href="index" class="nav-link">
 								<span class="nav-link-name">4 column</span>
 								<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -155,22 +155,22 @@
 							<div class="dropdown-menu">
 								<ul class="nav navbar-nav">
 									<li class="nav-item">
-										<a href="portfolio-col-4-style-1.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 1</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-4-style-2.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 2</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-4-style-3.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 3</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-col-4-style-4.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 4</span>
 										</a>
 									</li>
@@ -178,7 +178,7 @@
 							</div>
 						</li>
 						<li class="nav-item navbar-dropdown active">
-							<a href="portfolio-single-style-1.html" class="nav-link">
+							<a href="index" class="nav-link">
 								<span class="nav-link-name">Single Works</span>
 								<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -187,32 +187,32 @@
 							<div class="dropdown-menu">
 								<ul class="nav navbar-nav">
 									<li class="nav-item">
-										<a href="portfolio-single-style-1.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 1</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-single-style-2.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 2</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-single-style-3.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 3</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-single-style-4.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 4</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="portfolio-single-style-5.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 5</span>
 										</a>
 									</li>
 									<li class="nav-item active">
-										<a href="portfolio-single-style-6.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Style 6</span>
 										</a>
 									</li>
@@ -223,7 +223,7 @@
 				</div>
 			</li>
 			<li class="nav-item navbar-dropdown">
-				<a href="about-us.html" class="nav-link">
+				<a href="about-us" class="nav-link">
 					<span class="nav-link-name">pages</span>
 					<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -232,7 +232,7 @@
 				<div class="dropdown-menu">
 					<ul class="nav navbar-nav">
 						<li class="nav-item navbar-dropdown">
-							<a href="about-us.html" class="nav-link">
+							<a href="about-us" class="nav-link">
 								<span class="nav-link-name">About Us</span>
 								<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -241,17 +241,17 @@
 							<div class="dropdown-menu">
 								<ul class="nav navbar-nav">
 									<li class="nav-item">
-										<a href="about-us.html" class="nav-link">
+										<a href="about-us" class="nav-link">
 											<span class="nav-link-name">About Us</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="about-us-2.html" class="nav-link">
+										<a href="about-us" class="nav-link">
 											<span class="nav-link-name">About Us 2</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="about-me.html" class="nav-link">
+										<a href="about-us" class="nav-link">
 											<span class="nav-link-name">About Me</span>
 										</a>
 									</li>
@@ -259,7 +259,7 @@
 							</div>
 						</li>
 						<li class="nav-item navbar-dropdown">
-							<a href="services.html" class="nav-link">
+							<a href="index" class="nav-link">
 								<span class="nav-link-name">Services</span>
 								<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -268,12 +268,12 @@
 							<div class="dropdown-menu">
 								<ul class="nav navbar-nav">
 									<li class="nav-item">
-										<a href="services.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Services</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="single-service.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Single Service</span>
 										</a>
 									</li>
@@ -281,7 +281,7 @@
 							</div>
 						</li>
 						<li class="nav-item navbar-dropdown">
-							<a href="blog-col-3.html" class="nav-link">
+							<a href="index" class="nav-link">
 								<span class="nav-link-name">Blog</span>
 								<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -290,17 +290,17 @@
 							<div class="dropdown-menu">
 								<ul class="nav navbar-nav">
 									<li class="nav-item">
-										<a href="blog-col-3.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">3 column</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="blog-col-1.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">1 column</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="single-post.html" class="nav-link">
+										<a href="index" class="nav-link">
 											<span class="nav-link-name">Single Post</span>
 										</a>
 									</li>
@@ -308,12 +308,12 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a href="coming-soon.html" class="nav-link">
+							<a href="coming-soon" class="nav-link">
 								<span class="nav-link-name">Coming Soon</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="404.html" class="nav-link">
+							<a href="404" class="nav-link">
 								<span class="nav-link-name">404</span>
 							</a>
 						</li>
@@ -321,7 +321,7 @@
 				</div>
 			</li>
 			<li class="nav-item navbar-dropdown">
-				<a href="contact-1.html" class="nav-link">
+				<a href="contact-us" class="nav-link">
 					<span class="nav-link-name">contact</span>
 					<svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M1 9L5 5L1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -330,12 +330,12 @@
 				<div class="dropdown-menu">
 					<ul class="nav navbar-nav">
 						<li class="nav-item">
-							<a href="contact-1.html" class="nav-link">
+							<a href="contact-us" class="nav-link">
 								<span class="nav-link-name">Contact 1</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="contact-2.html" class="nav-link">
+							<a href="contact-us" class="nav-link">
 								<span class="nav-link-name">Contact 2</span>
 							</a>
 						</li>
