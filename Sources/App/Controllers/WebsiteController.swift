@@ -168,59 +168,91 @@ struct WebsiteController: RouteCollection
 	
 	func suvsHandler(_ req: Request) -> EventLoopFuture<View> {
 		
-		WebsiteCategory.query(on: req.db).sort(\.$navigationOrderNdx).all().flatMap { navItems in
+		WebsiteCategory.query(on: req.db).group(.or) { group in
 			
-			SiteObject.query(on: req.db).sort(\.$makeID).sort(\.$modelYear, .descending).all().flatMap { siteObjs in
+			group.filter(\.$navButtonName == "SUVs")}.first().flatMap { navItem in
 				
-				let siteObjects = siteObjs.isEmpty ? nil : siteObjs
-				
-				var pageNav: [String : Int] = [:]
-				var makeNav: [String] = []
-				var navNdx = 0
-				
-				for siteObj in siteObjs
-				{
-					if let _ = pageNav[siteObj.makeName]
-					{
+				SiteObject.query(on: req.db).group(.or) { group in
+					group.filter(\.$webCatogoryID == navItem!.webCatogoryID)}.sort(\.$makeName).sort(\.$modelYear, .descending).all().flatMap { siteObjs in
 						
-					}
-					else
-					{
-						pageNav[siteObj.makeName] = navNdx
-						navNdx += 1
+						let siteObjects = siteObjs.isEmpty ? nil : siteObjs
 						
-						makeNav.append(siteObj.makeName)
+						var pageNav: [String : Int] = [:]
+						var makeNav: [String] = []
+						var navNdx = 0
+						
+						for siteObj in siteObjs
+						{
+							if let _ = pageNav[siteObj.makeName]
+							{
+								
+							}
+							else
+							{
+								pageNav[siteObj.makeName] = navNdx
+								navNdx += 1
+								
+								makeNav.append(siteObj.makeName)
+							}
+						}
+						
+						return WebsiteCategory.query(on: req.db).sort(\.$navigationOrderNdx).all().flatMap() { navItems -> EventLoopFuture<View> in
+							
+							let context = CollectionContext(
+								title: "WebsterMotors",
+								vehicles: siteObjects,
+								top_nav: navItems,
+								page_nav: makeNav)
+							
+							return req.view.render("suvs", context)
+						}
 					}
-				}
-				
-				let context = CollectionContext(
-					title: "WebsterMotors",
-					vehicles: siteObjects,
-					top_nav: navItems,
-					page_nav: makeNav)
-
-				return req.view.render("about-us", context)
 			}
-		}
 	}
 	
 	
 	func trucksHandler(_ req: Request) -> EventLoopFuture<View> {
 		
-		WebsiteCategory.query(on: req.db).sort(\.$navigationOrderNdx).all().flatMap { navItems in
+		WebsiteCategory.query(on: req.db).group(.or) { group in
 			
-			SiteObject.query(on: req.db).sort(\.$makeID).sort(\.$modelYear, .descending).all().flatMap { siteObjs in
+			group.filter(\.$navButtonName == "Trucks")}.first().flatMap { navItem in
 				
-				let siteObjects = siteObjs.isEmpty ? nil : siteObjs
-				
-				let context = IndexContext(
-					title: "WebsterMotors",
-					vehicles: siteObjects,
-					top_nav: navItems)
-				
-				return req.view.render("about-us", context)
+				SiteObject.query(on: req.db).group(.or) { group in
+					group.filter(\.$webCatogoryID == navItem!.webCatogoryID)}.sort(\.$makeName).sort(\.$modelYear, .descending).all().flatMap { siteObjs in
+						
+						let siteObjects = siteObjs.isEmpty ? nil : siteObjs
+						
+						var pageNav: [String : Int] = [:]
+						var makeNav: [String] = []
+						var navNdx = 0
+						
+						for siteObj in siteObjs
+						{
+							if let _ = pageNav[siteObj.makeName]
+							{
+								
+							}
+							else
+							{
+								pageNav[siteObj.makeName] = navNdx
+								navNdx += 1
+								
+								makeNav.append(siteObj.makeName)
+							}
+						}
+						
+						return WebsiteCategory.query(on: req.db).sort(\.$navigationOrderNdx).all().flatMap() { navItems -> EventLoopFuture<View> in
+							
+							let context = CollectionContext(
+								title: "WebsterMotors",
+								vehicles: siteObjects,
+								top_nav: navItems,
+								page_nav: makeNav)
+							
+							return req.view.render("trucks", context)
+						}
+					}
 			}
-		}
 	}
 
 	
@@ -244,6 +276,13 @@ struct WebsiteController: RouteCollection
 				if let obj = siteObject
 				{
 					car = obj
+					
+					if let objImages = obj.objectImages, obj.objectImages!.count > 1
+					{
+						let sortedImages = objImages.sorted(by:  { $0 < $1 })
+						
+						car.objectImages = sortedImages
+					}
 				}
 				
 				return ObjectCategoryList.query(on: req.db).group(.or) { or in

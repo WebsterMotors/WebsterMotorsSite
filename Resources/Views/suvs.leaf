@@ -1,0 +1,54 @@
+#extend("base"):
+#export("content"):
+#extend("topnav"):
+#endextend
+<div class="content-wrap">
+	<div class="container">
+		<img class="w-100 mb-60 show-on-scroll" src="WebsterMotorsBanner.jpg" alt="" data-show-duration="800">
+			<div class="container isotope text-center"><span><h3 class="fw-dark">Our SUV Inventory</h3></span></div>
+	</div>
+	<div class="container isotope mt-70">
+		<ul class="nav justify-content-center isotope-options mb-60 show-on-scroll" data-show-duration="500">
+			<li class="nav-item active show-on-scroll" data-show-duration="500" data-show-distance="10" data-show-delay="100">
+				<a href="#" data-filter="all" class="nav-link">
+					<div class="nav-link-name">all suvs</div>
+				</a>
+			</li>
+			#if(page_nav):
+			#for(nav_item in page_nav):
+			<li class="nav-item show-on-scroll" data-show-duration="500" data-show-distance="10" data-show-delay="150">
+				<a href="#" data-filter="#(nav_item)" class="nav-link">
+					<div class="nav-link-name">#(nav_item)</div>
+				</a>
+			</li>
+			#endfor
+			#endif
+		</ul>
+		<div class="pt-30 show-on-scroll" data-show-duration="800">
+			<div class="row gh-1 gv-3 isotope-grid">
+				#if(vehicles):
+				#for(car in vehicles):
+				<div class="col-12 col-sm-6 col-md-4 isotope-item" data-filters="#(car.makeName)">
+					<a class="card card-portfolio card-default card-image-md card-hover-frame" href="siteObjectID?object=#(car.siteObjectID)">
+						<span class="card-img" data-cursor-style="cursor-circle" data-cursor-text="view">
+							<img src="#(car.heroImage)" alt="">
+						</span>
+						<span class="card-body">
+							<span class="card-title h5">#(car.makeName)&ensp;#(car.modelName)</span>
+							<span class="card-category subtitle">#(car.modelYear) &emsp;#(car.mileage)&ensp;miles &emsp;$ #(car.listPrice) </span>
+						</span>
+					</a>
+				</div>
+				#endfor
+				#endif
+			</div>
+		</div>
+	</div>
+	<div class="container isotope mt-60"><span><h2 class="fw-light"> </h2></span></div>
+</div>
+#extend("footer"):
+#endextend
+#endexport
+#endextend
+
+

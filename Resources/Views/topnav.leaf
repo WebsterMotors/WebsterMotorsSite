@@ -430,7 +430,13 @@
 								<ul class="nav navbar-nav">
 									#if(top_nav):
 									#for(nav_section in top_nav):
-									<li class="nav-item navbar-collapse">
+										<li class="nav-item">
+											<a href="#(nav_section.navButtonName)" class="nav-link">
+												<span class="nav-link-name">#(nav_section.navButtonName)</span>
+											</a>
+										</li>
+<!---
+										<li class="nav-item navbar-collapse">
 										<a href="#navbarCollapse#(nav_section.navButtonName)" class="nav-link collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="navbarCollapse#(nav_section.navButtonName)">
 											<span class="nav-link-name">#(nav_section.navButtonName)</span>
 											<svg class="collapse-icon" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -452,6 +458,7 @@
 											</ul>
 										</div>
 									</li>
+--->
 									#endfor
 									#endif
 								</ul>
