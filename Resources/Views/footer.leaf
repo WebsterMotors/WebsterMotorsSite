@@ -13,6 +13,10 @@
 			<li class="nav-item">
 				<a href="callto: 865-687-3782" class="nav-link h4 mt-8 mt-md-0">+1 865-687-3782</a>
 			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">
+					<span class="nav-link h4 mt-8 mt-md-0">FAX: &nbsp;865-689-9736</span></a>
+			</li>
 		</ul>
 		<ul class="nav nav-social nav-gap-sm align-items-center justify-content-center mb-30 text-white">
 			<li class="nav-item">
@@ -22,7 +26,7 @@
 					</svg>
 				</a>
 			</li>
-<!---
+
 			<li class="nav-item">
 				<a href="https://twitter.com/WebsterMotors" class="nav-link">
 					<svg width="17" height="15" viewBox="0 0 25 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +34,7 @@
 					</svg>
 				</a>
 			</li>
---->
+
 			<li class="nav-item">
 				<a href="https://instagram.com/WebsterMotors" class="nav-link" target="_blank" rel="noopener noreferrer">
 					<svg width="15" height="15" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">

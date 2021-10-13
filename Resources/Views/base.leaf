@@ -23,7 +23,7 @@
 		<!-- jQuery -->
 		<script src="assets/vendor/jquery/dist/jquery.min.js"></script>
 	</head>
-	<body>
+	<body class="background-color" style="background-color: rgb(0, 8, 100, 1.0); color: white">
 		#import("content")
 		<!-- START: Scripts -->
 		<!-- Object Fit Polyfill -->

@@ -5,10 +5,10 @@
 <div class="content-wrap">
 	<div class="container mt-n10">
                 <div class="pt-60 pb-130 mt-30 mb-n10 text-center">
-                    <h2 class="mb-n7 show-on-scroll" data-show-duration="700" data-show-distance="10">#(vehicle.modelYear) #(vehicle.makeName) #(vehicle.modelName)</h2>
-					<p class="mb-0 pt-10 show-on-scroll text-left" data-show-duration="500" data-show-distance="10" data-show-delay="150"><br><strong>Description:</strong>&nbsp;&nbsp;#(vehicle.featureInfo)</p>
-					<p class="mb-0 pt-10 show-on-scroll text-left" data-show-duration="500" data-show-distance="10" data-show-delay="150"><br><strong>Price:</strong>&nbsp;&nbsp;$#(vehicle.listPrice)</p>
-					<p class="mb-0 pt-10 show-on-scroll text-left" data-show-duration="500" data-show-distance="10" data-show-delay="150"><strong>Mileage:</strong>&nbsp;&nbsp;#(vehicle.mileage)&nbsp;&nbsp;&nbsp;&nbsp;<strong>VIN:</strong>&nbsp;&nbsp;#(vehicle.vinNumber)&nbsp;&nbsp;&nbsp;&nbsp;<strong>Body Style:</strong>&nbsp;&nbsp;#(vehicle.typeName)&nbsp;&nbsp;&nbsp;&nbsp;<strong>Doors:</strong>&nbsp;&nbsp;#(vehicle.numDoors)</p>
+                    <h2 style="color:Orange;" class="mb-n7 show-on-scroll" data-show-duration="700" data-show-distance="10">#(vehicle.modelYear) #(vehicle.makeName) #(vehicle.modelName)</h2>
+					<p class="mb-0 pt-10 show-on-scroll text-left" data-show-duration="500" data-show-distance="10" data-show-delay="150"><br><span style="color:Orange;"><strong>Description:</strong></span>&nbsp;&nbsp;#(vehicle.featureInfo)</p>
+					<p class="mb-0 pt-10 show-on-scroll text-left" data-show-duration="500" data-show-distance="10" data-show-delay="150"><br><span style="color:Orange;"><strong>Price:</strong></span>&nbsp;&nbsp;$#(vehicle.listPrice)</p>
+					<p class="mb-0 pt-10 show-on-scroll text-left" data-show-duration="500" data-show-distance="10" data-show-delay="150"><span style="color:Orange;"><strong>Mileage:</strong></span>&nbsp;&nbsp;#(vehicle.mileage)&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:Orange;"><strong>VIN:</strong></span>&nbsp;&nbsp;#(vehicle.vinNumber)&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:Orange;"><strong>Body Style:</strong></span>&nbsp;&nbsp;#(vehicle.typeName)&nbsp;&nbsp;&nbsp;&nbsp;</span><strong>Doors:</strong></span>&nbsp;&nbsp;#(vehicle.numDoors)</p>
              </div>
                 <div class="swiper mb-60 show-on-scroll" data-swiper-slides="1" data-swiper-speed="600" data-swiper-loop="true" data-swiper-parallax="true" data-show-duration="700" data-show-delay="100">
                     <div class="swiper-container">
@@ -45,12 +45,12 @@
                 </div>
                 <div class="row gv-3 justify-content-center mb-130">
                     <div class="col-12 col-lg-7 text-center">
-                        <h2 class="h3 mb-30 mt-n10 show-on-scroll" data-show-duration="500" data-show-distance="10">Vehicle Features</h2>
+                        <h2 class="h3 mb-30 mt-n10 show-on-scroll" data-show-duration="500" data-show-distance="10" style="color:Orange;">Vehicle Features</h2>
 						
 						#if(features):
 						#for(feature in features):
 						
-                        <p class="mb-0 pt-10 show-on-scroll text-left" data-show-duration="500" data-show-distance="10" data-show-delay="150"><strong>#(feature.categoryName):</strong>&nbsp;&nbsp;#(feature.itemsList)</p>
+                        <p class="mb-0 pt-10 show-on-scroll text-left" data-show-duration="500" data-show-distance="10" data-show-delay="150"><span style="color:Orange;"><strong>#(feature.categoryName):</strong></span>&nbsp;&nbsp;#(feature.itemsList)</p>
 						#endfor
 						#endif
 `                    </div>
