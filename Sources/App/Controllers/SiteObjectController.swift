@@ -17,6 +17,7 @@ struct SiteObjectController: RouteCollection
 		objectRoutes.get(use: getAllHandler)
 		objectRoutes.get(":objectID", use: getHandler)
 		objectRoutes.get("siteObjectID", ":siteObjectID", use: getSiteObjectIDHandler)
+		objectRoutes.get("webCatogoryID", ":webCatogoryID", use: getObjectsForWebCategory_Handler)
 		objectRoutes.get("search", use: searchHandler)
 
 		objectRoutes.get("OptionItems", use: findOptionItemsHandler)
@@ -113,7 +114,20 @@ struct SiteObjectController: RouteCollection
 			or.filter(\.$siteObjectID == searchTerm)
 		}.first().unwrap(or: Abort(.notFound))
 	}
+	
+	
+	func getObjectsForWebCategory_Handler(_ req: Request) throws -> EventLoopFuture<[SiteObject]>
+	{
+		guard let searchTerm = req.parameters.get("webCatogoryID") else {
+			throw Abort(.badRequest)
+		}
+		
+		return SiteObject.query(on: req.db).group(.or) { or in
+			or.filter(\.$webCatogoryID == searchTerm)
+		}.sort(\.$modelYear, .descending).all()
+	}
 
+	
 	func searchHandler(_ req: Request) throws -> EventLoopFuture<SiteObject>
 	{
 		guard let searchTerm = req

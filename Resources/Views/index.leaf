@@ -3,7 +3,7 @@
 #extend("topnav"):
 #endextend
 <div class="content-wrap">
-	<div class="container isotope mt-60">
+	<div class="container isotope mt-40">
 		<a class="card card-portfolio card-default card-hover-zoom" href="#">
 			<span class="card-img">
 				<img class="w-100 center" src="WebsterMotorsBanner.jpg" alt="">
@@ -52,8 +52,8 @@
 							<img src="#(car.heroImage)" alt="">
 						</span>
 						<span class="card-body">
-							<span style="color:Orange;" class="card-title" h5">#(car.makeName)&ensp;#(car.modelName)</span>
-							<span class="card-category subtitle text-white">#(car.modelYear) &emsp;#(car.mileage)&ensp;miles &emsp;$ #(car.listPrice) </span>
+							<span style="color:Orange;" class="card-title" h5">#(car.modelYear)&ensp;#(car.makeName)&ensp;#(car.modelName)</span>
+							<span class="card-category subtitle text-white">#(car.mileage)&ensp;miles&ensp; &emsp;$ #(car.listPrice) </span>
 						</span>
 					</a>
 				</div>

@@ -5,7 +5,7 @@
 		</svg>
 	</div>
 	<div class="container pt-4">
-		<ul class="nav align-items-center flex-column text-white mb-80">
+		<ul class="nav align-items-center flex-column text-white mb-100">
 			<li class="nav-item">
 				<a href="mailto:info@webstermotors.net?subject=Web%20Site%20Question" class="nav-link h2 mb-8 mb-md-30 d-none d-md-flex">info@webstermotors.net</a>
 				<a href="mailto:info@webstermotors.net?subject=Web%20Site%20Question" class="nav-link h4 mb-8 mb-md-30 d-md-none">info@webstermotors.net</a>
@@ -16,6 +16,14 @@
 			<li class="nav-item">
 				<a href="#" class="nav-link">
 					<span class="nav-link h4 mt-8 mt-md-0">FAX: &nbsp;865-689-9736</span></a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">
+					<span class="nav-link h5 mt-8 mt-md-0">Visit us:&nbsp;&nbsp;&nbsp;4133 Broadway,&nbsp;Knoxville,&nbsp;TN&nbsp;&nbsp;37917</span></a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">
+					<span class="nav-link h6 mt-8 mt-md-0">Hours:&nbsp;&nbsp;&nbsp; Mon-Fri 9-6&nbsp;&nbsp;&nbsp;Sat 10-2&nbsp;&nbsp;&nbsp;Sun Closed</span></a>
 			</li>
 		</ul>
 		<ul class="nav nav-social nav-gap-sm align-items-center justify-content-center mb-30 text-white">
