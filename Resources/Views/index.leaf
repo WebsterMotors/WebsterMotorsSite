@@ -3,7 +3,9 @@
 #extend("topnav"):
 #endextend
 <div class="content-wrap">
-	<div class="container isotope mt-40">
+	<div class="container isotope">
+		<div class="page-navigation">
+		</div>
 		<a class="card card-portfolio card-default card-hover-zoom" href="#">
 			<span class="card-img">
 				<img class="w-100 center" src="WebsterMotorsBanner.jpg" alt="">
@@ -14,7 +16,7 @@
 			</span>
 			<span>...</span>
 		</a>
-			<div class="container isotope text-center"><span><h3 style="color:Orange;" class="fw-dark">Our Vehicle Inventory</h3></span></div>
+			<div class="container text-center"><span><h3 style="color:Orange;" class="fw-dark">Our Vehicle Inventory</h3></span></div>
 	</div>
 <!---
 <section class="py-5 text-center container">

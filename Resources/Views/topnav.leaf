@@ -1,9 +1,14 @@
 <header class="navbar-dark navbar-top navbar-expand-sm">
 	<div class="container">
+			<span><br></span>
+			<span></span>
+			<span></span>
 		<a class="navbar-brand" href="index">
-			<img width="152" src="assets/images/logo-white.png" alt="">
+			<img width="256" src="assets/images/logo-white.png" alt="">
 		</a>
-<ul class="nav navbar-nav align-items-right text-while">
+		<span><br></span>
+		<span><br></span>
+<ul class="nav navbar-top align-items-right text-white">
 	<!--
 		<a class="navbar-toggle" href="#navbar-mobile-style-2" data-fancybox data-base-class="fancybox-navbar" data-keyboard="false" data-auto-focus="false" data-touch="false" data-close-existing="true" data-small-btn="false" data-toolbar="false">
 			<span></span>
