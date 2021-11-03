@@ -99,7 +99,7 @@ public func configure(_ app: Application) throws {
 	app.migrations.add(CreateSiteAdminGlobal())
 	app.migrations.add(CreateAdminUser())
 
-	app.logger.logLevel = .info
+	app.logger.logLevel = .critical
 	
 	try app.autoMigrate().wait()
 	
