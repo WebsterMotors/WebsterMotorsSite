@@ -98,8 +98,12 @@ public func configure(_ app: Application) throws {
 	app.migrations.add(CreateCategoryList())
 	app.migrations.add(CreateSiteAdminGlobal())
 	app.migrations.add(CreateAdminUser())
+	
+	app.migrations.add(CreateSitePage())
+	app.migrations.add(CreatePageObjectPivot())
+	app.migrations.add(CreatePageMakerPivot())
 
-	app.logger.logLevel = .critical
+	app.logger.logLevel = .info
 	
 	try app.autoMigrate().wait()
 	

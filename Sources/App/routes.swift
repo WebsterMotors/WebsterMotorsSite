@@ -47,6 +47,9 @@ func routes(_ app: Application) throws {
 	
 	let objectCatListController = ObjectCategoryListController()
 	try app.register(collection: objectCatListController)
+	
+	let sitePageController = SitePageController()
+	try app.register(collection: sitePageController)
 
 	let usersController = UsersController()
 	try app.register(collection: usersController)
