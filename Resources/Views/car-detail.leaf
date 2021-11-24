@@ -47,7 +47,7 @@
 		<div class="row gv-3 justify-content-center mb-60">
 			<a href="http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=#(vehicle.vinNumber)" class="nav-link" target="_blank" rel="noopener noreferrer">
 				<span class="card-img">
-					<img src='assets/images/show-me-the-carfax.png' width='240' height='75' border='0' />
+					<img src='https://webstersitebucket.s3.us-east-2.amazonaws.com/site-data/assets/images/show-me-the-carfax.png' width='240' height='75' border='0' />
 				</span></a>
 			
 		</div>
