@@ -20,11 +20,11 @@ struct WebsiteController: RouteCollection
 		routes.get("index", use: indexHandler)
 		routes.get("about-us", use: aboutHandler)
 		routes.get("contact-us", use: contactHandler)
-		routes.get("Cars", use: carsHandler)
+/*		routes.get("Cars", use: carsHandler)
 		routes.get("SUVs", use: suvsHandler)
 		routes.get("Trucks", use: trucksHandler)
-		routes.get("siteObjectID", use: getSiteObjectIDHandler)
-		
+ */		routes.get("siteObjectID", use: getSiteObjectIDHandler)
+
 	}
 
 	
@@ -256,13 +256,57 @@ struct WebsiteController: RouteCollection
 	}
 
 	
-	func getSiteObjectIDHandler(_ req: Request) -> EventLoopFuture<View>
+	func getSiteObjectIDHandler(_ req: Request) throws -> EventLoopFuture<View>
 	{
 		guard let objectID = req
 				.query[String.self, at: "object"] else {
-					_ = Abort(.badRequest)
+					
+					throw Abort(.badRequest)
+				}
+		
+		return WebsiteCategory.query(on: req.db).sort(\.$navigationOrderNdx).all().flatMap { navItems -> EventLoopFuture<View> in
+			
+			SiteObject.query(on: req.db).group(.or) { or in
+				or.filter(\.$siteObjectID == objectID)
+			}.first().flatMap() { siteObject in
+				
+				guard let car = siteObject else
+				{
+					_ = Abort(.notFound)
 					
 					return req.view.render("car-detail")
+				}
+				
+				if let objImages = car.objectImages, car.objectImages!.count > 1
+				{
+					let sortedImages = objImages.sorted(by:  { $0 < $1 })
+					
+					car.objectImages = sortedImages
+				}
+				
+				
+				return ObjectCategoryList.query(on: req.db).group(.or) { or in
+					or.filter(\.$siteObjectID == car.siteObjectID)}.sort(\.$displayNdx).all().flatMap { carFeatures -> EventLoopFuture<View> in
+						
+						let context = SiteObjectContext(
+							title: car.modelName,
+							vehicle: car,
+							features: carFeatures,
+							top_nav: navItems)
+						
+						return req.view.render("car-detail", context)
+					}
+			}
+		}
+	}
+
+/*
+	func getSiteObjectIDHandler(_ req: Request) throws -> EventLoopFuture<View>
+	{
+		guard let objectID = req
+				.query[String.self, at: "object"] else {
+					
+					throw Abort(.badRequest)
 				}
 
 		return WebsiteCategory.query(on: req.db).sort(\.$navigationOrderNdx).all().flatMap { navItems -> EventLoopFuture<View> in
@@ -271,19 +315,20 @@ struct WebsiteController: RouteCollection
 				or.filter(\.$siteObjectID == objectID)
 			}.first().flatMap() { siteObject in
 				
-				var car: SiteObject!
-				
-				if let obj = siteObject
+				guard let obj = siteObject else
 				{
-					car = obj
-					
-					if let objImages = obj.objectImages, obj.objectImages!.count > 1
-					{
-						let sortedImages = objImages.sorted(by:  { $0 < $1 })
-						
-						car.objectImages = sortedImages
-					}
+					Abort(.notFound)
 				}
+				
+				var car: SiteObject! = obj
+				
+				if let objImages = car.objectImages, car.objectImages!.count > 1
+				{
+					let sortedImages = objImages.sorted(by:  { $0 < $1 })
+					
+					car.objectImages = sortedImages
+				}
+
 				
 				return ObjectCategoryList.query(on: req.db).group(.or) { or in
 					or.filter(\.$siteObjectID == car.siteObjectID)}.sort(\.$displayNdx).all().flatMap { carFeatures -> EventLoopFuture<View> in
@@ -299,7 +344,7 @@ struct WebsiteController: RouteCollection
 				}
 		}
 	}
-	
+*/
 	
 }
 
